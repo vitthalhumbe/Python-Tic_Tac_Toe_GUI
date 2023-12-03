@@ -13,9 +13,3 @@ This is a simple implementation of the Tic Tac Toe game using Python and Tkinter
 - The first player to get three of their marks in a row (horizontally, vertically, or diagonally) wins the game.
 - If the entire grid is filled and no player has won, the game is a draw.
 
-## How to Run
-
-Ensure you have Python installed on your system. Run the following command in your terminal:
-
-```bash
-python tic_tac_toe.py

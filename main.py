@@ -143,12 +143,9 @@ Grid9.bind("<Button-1>", play)
 
 restartFrame = Frame(root)
 restartFrame.grid(row=3, pady=12)
-restartButton = Button(restartFrame, text="Restart Game", width=12, height=1, command=restartGame)
+restartButton = Button(restartFrame, text="Restart Game", width=30, height=4, command=restartGame, bg="#53d769")
 restartButton.grid(row=4, column=0)
 buttons = [Grid1, Grid2, Grid3, Grid4, Grid5, Grid6, Grid7, Grid8, Grid9]
 
 
-
-winFrame = Frame(root, width=22)
-winFrame.grid(row=4, pady=12)
 root.mainloop()

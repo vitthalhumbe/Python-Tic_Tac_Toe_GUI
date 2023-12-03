@@ -1,5 +1,5 @@
 from tkinter import *
-
+from tkinter import messagebox
 
 root = Tk()
 root.geometry("500x600")
@@ -15,6 +15,30 @@ board = {
     4: ' ', 5: ' ', 6: ' ',
     7: ' ', 8: ' ', 9: ' '
 }
+
+def _winnerHelper(player):
+    messagebox.showinfo("Winner", f"{player} wins the game")
+
+def checkForWinner(player):
+    if board[1] == board[2] == board[3] and board[3] == player:
+        _winnerHelper(player)
+    elif board[4] == board[5] == board[6] and board[6] == player:
+        _winnerHelper(player)
+    elif board[7] == board[8] == board[9] and board[9] == player:
+        _winnerHelper(player)
+    elif board[1] == board[4] == board[7] and board[7] == player:
+        _winnerHelper(player)
+    elif board[2] == board[5] == board[8] and board[8] == player:
+        _winnerHelper(player)
+    elif board[3] == board[6] == board[9] and board[9] == player:
+        _winnerHelper(player)
+    elif board[1] == board[5] == board[9] and board[3] == player:
+        _winnerHelper(player)
+    elif board[3] == board[5] == board[7] and board[7] == player:
+        _winnerHelper(player)
+
+    else:
+        return False
 
 turn = "X"
 def play(event):
@@ -32,10 +56,16 @@ def play(event):
         if turn == 'X':
             button["text"] = "X"
             board[clicked] = turn
+            if checkForWinner(turn):
+                print(turn, " is winner")
+                print("Game Over")
             turn = "O"
         else:
             button["text"] = "O"
             board[clicked] = turn
+            if checkForWinner(turn):
+                print(turn, " is winner")
+                print("Game Over")
             turn = "X"
 
     print(board)

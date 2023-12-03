@@ -17,7 +17,8 @@ board = {
 }
 
 def _winnerHelper(player):
-    messagebox.showinfo("Winner", f"{player} wins the game")
+    messagebox.showinfo("Game Over", f"{player} wins the game")
+
 
 def checkForWinner(player):
     if board[1] == board[2] == board[3] and board[3] == player:
@@ -39,6 +40,12 @@ def checkForWinner(player):
 
     else:
         return False
+
+def checkForDraw():
+    for i in board.keys():
+        if board[i] == " ":
+            return False
+    return True
 
 turn = "X"
 def play(event):
@@ -67,6 +74,9 @@ def play(event):
                 print(turn, " is winner")
                 print("Game Over")
             turn = "X"
+
+        if checkForDraw():
+            messagebox.showinfo("Game Over", "Game Draw")
 
     print(board)
 # Board setup

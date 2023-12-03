@@ -10,19 +10,35 @@ frame1.pack()
 titleLabel = Label(frame1, text="Tic Tac Toe", font=("Arial", 30))
 titleLabel.pack()
 
-
+board = {
+    1: ' ', 2: ' ', 3: ' ',
+    4: ' ', 5: ' ', 6: ' ',
+    7: ' ', 8: ' ', 9: ' '
+}
 
 turn = "X"
 def play(event):
     global turn
     button = event.widget
+    buttonText = str(button)
+    clicked = buttonText[-1]
 
-    if turn == 'X':
-        button["text"] = "X"
-        turn = "O"
+    if clicked == "n":
+        clicked = 1
     else:
-        button["text"] = "O"
-        turn = "X"
+        clicked = int(clicked)
+
+    if button["text"] == " ":
+        if turn == 'X':
+            button["text"] = "X"
+            board[clicked] = turn
+            turn = "O"
+        else:
+            button["text"] = "O"
+            board[clicked] = turn
+            turn = "X"
+
+    print(board)
 # Board setup
 boardFrame = Frame(root)
 boardFrame.pack()
